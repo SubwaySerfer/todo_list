@@ -1,6 +1,6 @@
 <template>
   <the-header></the-header>
-  <router-view></router-view>
+  <router-view class="wrapper"></router-view>
 </template>
 
 <script>
@@ -22,9 +22,18 @@ export default {
 
 html {
   font-family: 'Roboto', sans-serif;
+  font-size: 10px;
 }
 
 body {
   margin: 0;
+}
+</style>
+
+<style scoped>
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
 }
 </style>

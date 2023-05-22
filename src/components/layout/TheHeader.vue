@@ -2,6 +2,7 @@
   <header>
     <nav>
       <h1><router-link to="/">Todo List</router-link></h1>
+      <div>5 days!</div>
       <ul>
         <li><router-link to="">Contact Me</router-link></li>
         <li>
@@ -15,7 +16,7 @@
 <style scoped>
 header {
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   background-color: #3d008d;
   display: flex;
   justify-content: center;
@@ -26,8 +27,9 @@ header a {
   text-decoration: none;
   color: #f391e3;
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.7rem;
   border: 1px solid transparent;
+  font-size: 1.6rem;
 }
 
 a:active,
@@ -69,6 +71,6 @@ header ul {
 }
 
 li {
-  margin: 0 0.5rem;
+  margin: 0 0.7rem;
 }
 </style>
