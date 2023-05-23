@@ -1,7 +1,11 @@
 <template>
   <section class="wrapper">
     <header><h2>Create Task</h2></header>
-    <form @submit.prevent="">
+    <form @submit.prevent="" class="content">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" v-model="title" />
+      </div>
       <div class="priority-container">
         <h3>Priority</h3>
         <div class="priority-container__checkboxes">
@@ -37,6 +41,22 @@
           </div>
         </div>
       </div>
+      <div class="container">
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="5"
+        ></textarea>
+      </div>
+      <div class="container-days">
+        <label for="">The task for how long?</label>
+        <select id="days" name="days" v-model="days">
+          <option value="today">Today</option>
+          <option value="week">Week</option>
+        </select>
+      </div>
     </form>
   </section>
 </template>
@@ -46,12 +66,26 @@ export default {
   data() {
     return {
       priority: null,
+      days: 'today',
     };
   },
 };
 </script>
 
 <style scoped>
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container label {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
 .wrapper {
   width: 50vw;
   height: auto;
@@ -89,5 +123,11 @@ h2 {
 }
 .radio {
   margin: 0;
+}
+.container-days {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
 }
 </style>
