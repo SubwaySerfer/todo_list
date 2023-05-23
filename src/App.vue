@@ -34,6 +34,6 @@ body {
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
-  padding-top: 2rem;
+  margin-top: 3rem;
 }
 </style>
