@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import NotFound from '../pages/NotFound';
-import TodoRegister from '../pages/todo/TodoRegister';
+import TaskRegister from '../pages/todo/TaskRegister';
 import ContactMe from '../pages/contacts/ContactMe';
 import HomeList from '../pages/home/HomeList';
 
@@ -24,8 +24,8 @@ const router = createRouter({
       children: [
         {
           path: 'register',
-          name: 'todoRegister',
-          component: TodoRegister,
+          name: 'taskRegister',
+          component: TaskRegister,
         },
       ],
     },

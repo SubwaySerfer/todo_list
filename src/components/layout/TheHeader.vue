@@ -2,6 +2,7 @@
   <header>
     <nav>
       <h1><router-link to="/">Todo List</router-link></h1>
+      <h2>Tasks: {{ taskCounter }}</h2>
       <div>5 days!</div>
       <ul>
         <li><router-link to="">Contact Me</router-link></li>
@@ -12,6 +13,16 @@
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  computed: {
+    taskCounter() {
+      return this.$store.getters['todo/tasks'].length;
+    },
+  },
+};
+</script>
 
 <style scoped>
 header {

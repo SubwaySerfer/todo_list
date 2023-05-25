@@ -14,10 +14,15 @@ export default {
   components: {
     TodoForm,
   },
+  computed: {
+    tasks() {
+      return console.log(this.$store.getters['todo/tasks']);
+    },
+  },
   methods: {
     saveData(data) {
-      console.log(data);
-      // add to vuex later
+      this.$store.commit('todo/registerTask', data);
+      this.$router.replace('/todo');
     },
   },
 };
