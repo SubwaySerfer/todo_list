@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import NotFound from '../pages/NotFound';
-import TodoList from '../pages/todo/TodoList';
+import TodoRegister from '../pages/todo/TodoRegister';
 import ContactMe from '../pages/contacts/ContactMe';
 import HomeList from '../pages/home/HomeList';
 
@@ -20,8 +20,16 @@ const router = createRouter({
     {
       path: '/todo',
       name: 'todo',
-      component: TodoList,
+      component: '',
+      children: [
+        {
+          path: 'register',
+          name: 'todoRegister',
+          component: TodoRegister,
+        },
+      ],
     },
+
     {
       path: '/contacts',
       name: 'contacts',

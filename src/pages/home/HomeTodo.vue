@@ -11,7 +11,9 @@
     </header>
     <div>Todo preview</div>
     <div class="footer">
-      <router-link to="/todo"><button>Create Task</button></router-link>
+      <router-link to="/todo/register"
+        ><button>Create Task</button></router-link
+      >
     </div>
   </div>
 </template>

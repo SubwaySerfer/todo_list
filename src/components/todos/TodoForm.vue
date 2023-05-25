@@ -1,0 +1,146 @@
+<template>
+  <form @submit.prevent="" class="content">
+    <div class="form-control">
+      <label for="title">Title:</label>
+      <input type="text" id="title" v-model="title" />
+    </div>
+    <div class="form-control">
+      <h3>Priority</h3>
+      <div class="form-control container-priority">
+        <div class="container-priority_item">
+          <input
+            class="radio"
+            type="radio"
+            id="hight"
+            value="hight"
+            v-model="priority"
+          />
+          <label for="hight">Hight</label>
+        </div>
+        <div class="container-priority_item">
+          <input
+            class="radio"
+            type="radio"
+            id="medium"
+            value="medium"
+            v-model="priority"
+          />
+          <label for="medium">Medium</label>
+        </div>
+        <div class="container-priority_item">
+          <input
+            class="radio"
+            type="radio"
+            id="light"
+            value="light"
+            v-model="priority"
+          />
+          <label for="light">Light</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="description">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="5"
+      ></textarea>
+    </div>
+    <div class="form-control">
+      <label for="">The task for how long?</label>
+      <select id="days" name="days" v-model="days">
+        <option value="today">Today</option>
+        <option value="week">Week</option>
+      </select>
+    </div>
+    <base-button>Add Task</base-button>
+  </form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      priority: null,
+      days: 'today',
+    };
+  },
+};
+</script>
+
+<style scoped>
+.form-control {
+  margin: 0.5rem 0;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type='checkbox'] + label {
+  font-weight: normal;
+  display: inline;
+  margin: 0 0 0 0.5rem;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+input:focus,
+textarea:focus {
+  background-color: #f0e6fd;
+  outline: none;
+  border-color: #3d008d;
+}
+
+input[type='checkbox'] {
+  display: inline;
+  width: auto;
+  border: none;
+}
+
+input[type='checkbox']:focus {
+  outline: #3d008d solid 1px;
+}
+
+h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.invalid label {
+  color: red;
+}
+
+.invalid input,
+.invalid textarea {
+  border: 1px solid red;
+}
+
+.container-priority {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.container-priority_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.container-priority_item input,
+.container-priority_item label {
+  margin: 0;
+}
+</style>
