@@ -6,17 +6,42 @@
           <li><span>Task name</span></li>
           <li><span>Priority</span></li>
           <li><span>Status</span></li>
+          <li><span>date</span></li>
         </ul>
       </nav>
     </header>
-    <div>Todo preview</div>
+    <div>
+      <ul class="container-tasks">
+        <task-item
+          v-for="task in filteredTasks"
+          :key="task.title"
+          :title="task.title"
+          :days="task.days"
+          :priority="task.priority"
+        ></task-item>
+      </ul>
+    </div>
     <div class="footer">
-      <router-link to="/todo/register"
+      <router-link to="/register-task"
         ><button>Create Task</button></router-link
       >
     </div>
   </div>
 </template>
+
+<script>
+import TaskItem from '@/components/home/TaskItem.vue';
+
+export default {
+  components: { TaskItem },
+  computed: {
+    filteredTasks() {
+      const tasks = this.$store.getters['todo/tasks'];
+      return tasks;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .container {
@@ -49,5 +74,11 @@ ul {
 
 .footer {
   align-self: flex-end;
+}
+
+.container-tasks {
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 </style>

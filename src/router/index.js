@@ -4,6 +4,7 @@ import NotFound from '../pages/NotFound';
 import TaskRegister from '../pages/todo/TaskRegister';
 import ContactMe from '../pages/contacts/ContactMe';
 import HomeList from '../pages/home/HomeList';
+import TodoList from '../pages/todo/TodoList';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,14 +21,12 @@ const router = createRouter({
     {
       path: '/todo',
       name: 'todo',
-      component: '',
-      children: [
-        {
-          path: 'register',
-          name: 'taskRegister',
-          component: TaskRegister,
-        },
-      ],
+      component: TodoList,
+    },
+    {
+      path: '/register-task',
+      name: 'taskRegister',
+      component: TaskRegister,
     },
 
     {
