@@ -1,10 +1,15 @@
 <template>
-  <form @submit.prevent="" class="content">
-    <div class="form-control">
+  <form @submit.prevent="submitForm" class="content">
+    <div class="form-control" :class="{ invalid: !title.isValid }">
       <label for="title">Title:</label>
-      <input type="text" id="title" v-model="title" />
+      <input
+        type="text"
+        id="title"
+        v-model.trim="title.val"
+        @blur="clearValidity('title')"
+      />
     </div>
-    <div class="form-control">
+    <div class="form-control" :class="{ invalid: !priority.isValid }">
       <h3>Priority</h3>
       <div class="form-control container-priority">
         <div class="container-priority_item">
@@ -13,7 +18,8 @@
             type="radio"
             id="hight"
             value="hight"
-            v-model="priority"
+            v-model="priority.val"
+            @blur="clearValidity('priority')"
           />
           <label for="hight">Hight</label>
         </div>
@@ -23,7 +29,8 @@
             type="radio"
             id="medium"
             value="medium"
-            v-model="priority"
+            v-model="priority.val"
+            @blur="clearValidity('priority')"
           />
           <label for="medium">Medium</label>
         </div>
@@ -33,19 +40,22 @@
             type="radio"
             id="light"
             value="light"
-            v-model="priority"
+            v-model="priority.val"
+            @blur="clearValidity('priority')"
           />
           <label for="light">Light</label>
         </div>
       </div>
     </div>
-    <div class="form-control">
+    <div class="form-control" :class="{ invalid: !description.isValid }">
       <label for="description">Description</label>
       <textarea
         name="description"
         id="description"
+        v-model.trim="description.val"
         cols="30"
         rows="5"
+        @blur="clearValidity('description')"
       ></textarea>
     </div>
     <div class="form-control">
@@ -63,9 +73,49 @@
 export default {
   data() {
     return {
-      priority: null,
+      title: {
+        val: '',
+        isValid: true,
+      },
+      priority: {
+        val: null,
+        isValid: true,
+      },
       days: 'today',
+      description: {
+        val: '',
+        isValid: true,
+      },
+      formIsValid: true,
     };
+  },
+  methods: {
+    clearValidity(input) {
+      this[input].isValid = true;
+    },
+    validateForm() {
+      this.formIsValid = true;
+      if (this.title.val.length < 3) {
+        this.title.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.description.val.length < 10) {
+        this.description.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.priority.val === null) {
+        this.priority.isValid = false;
+        this.formIsValid = false;
+      }
+    },
+    submitForm() {
+      this.validateForm();
+      if (!this.formIsValid) {
+        return;
+      }
+      console.log('submit');
+      // console.log(this.title.val.length);
+    },
   },
 };
 </script>
