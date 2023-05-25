@@ -71,6 +71,7 @@
 
 <script>
 export default {
+  emits: ['save-data'],
   data() {
     return {
       title: {
@@ -113,8 +114,14 @@ export default {
       if (!this.formIsValid) {
         return;
       }
-      console.log('submit');
-      // console.log(this.title.val.length);
+
+      const taskData = {
+        title: this.title.val,
+        priority: this.priority.val,
+        description: this.description.val,
+        days: this.days,
+      };
+      this.$emit('save-data', taskData);
     },
   },
 };

@@ -2,7 +2,7 @@
   <section class="wrapper">
     <base-card>
       <h2>Create Task</h2>
-      <todo-form></todo-form>
+      <todo-form @save-data="saveData"></todo-form>
     </base-card>
   </section>
 </template>
@@ -13,6 +13,12 @@ import TodoForm from '@/components/todos/TodoForm';
 export default {
   components: {
     TodoForm,
+  },
+  methods: {
+    saveData(data) {
+      console.log(data);
+      // add to vuex later
+    },
   },
 };
 </script>
