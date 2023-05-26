@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     tasks() {
-      return console.log(this.$store.getters['todo/tasks']);
+      return this.$store.getters['todo/tasks'];
     },
   },
   methods: {

@@ -5,4 +5,7 @@ export default {
   setLocalStorage(state) {
     localStorage.setItem('tasks', JSON.stringify(state.tasks));
   },
+  deleteTask(state, payload) {
+    state.tasks = state.tasks.filter((el, idx) => idx != payload);
+  },
 };
