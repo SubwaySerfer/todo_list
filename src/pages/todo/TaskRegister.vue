@@ -22,6 +22,7 @@ export default {
   methods: {
     saveData(data) {
       this.$store.commit('todo/registerTask', data);
+      this.$store.commit('todo/setLocalStorage');
       this.$router.replace('/todo');
     },
   },

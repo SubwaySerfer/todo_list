@@ -34,6 +34,9 @@ import TaskItem from '@/components/home/TaskItem.vue';
 
 export default {
   components: { TaskItem },
+  created() {
+    this.$store.dispatch('todo/getTasks');
+  },
   computed: {
     filteredTasks() {
       const tasks = this.$store.getters['todo/tasks'];
