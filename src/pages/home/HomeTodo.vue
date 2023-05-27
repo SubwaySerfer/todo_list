@@ -3,10 +3,10 @@
     <header>
       <nav>
         <ul>
-          <li><span>Task name</span></li>
-          <li><span>Priority</span></li>
-          <li><span>Status</span></li>
-          <li><span>date</span></li>
+          <li class="nav-item"><span>Task name</span></li>
+          <li class="nav-item"><span>Priority</span></li>
+          <li class="nav-item"><span>Status</span></li>
+          <li class="nav-item"><span>date</span></li>
         </ul>
       </nav>
     </header>
@@ -56,6 +56,19 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
+.nav-item {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+  text-transform: uppercase;
+}
+/* .nav-item span {
+  text-align: center;
+} */
+nav {
+  margin-left: 3%;
+}
 
 header {
   border: 1px solid black;
@@ -69,7 +82,7 @@ ul {
   margin: 0;
   padding: 0;
   gap: 0.5rem;
-  justify-content: space-around;
+  justify-content: start;
   height: 3rem;
   align-items: center;
   font-weight: 600;
@@ -83,5 +96,7 @@ ul {
   height: auto;
   display: flex;
   flex-direction: column;
+  margin-left: 3%;
+  gap: 1rem;
 }
 </style>

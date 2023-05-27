@@ -1,9 +1,9 @@
 <template>
   <li>
-    <h4>{{ title }}</h4>
-    <h5>{{ priority }}</h5>
-    <h5>None</h5>
-    <h6>{{ days }}</h6>
+    <span class="li-item">{{ title }}</span>
+    <span class="li-item">{{ priority }}</span>
+    <span class="li-item">None</span>
+    <span class="li-item">{{ days }}</span>
     <button @click="delTask(title)">delete</button>
   </li>
 </template>
@@ -32,8 +32,17 @@ export default {
 li {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: start;
   width: 100%;
+  gap: 0.5rem;
+}
+.li-item {
+  width: 20%;
+  height: auto;
+  display: block;
+  align-self: center;
+  text-align: center;
+  text-transform: uppercase;
 }
 </style>
 
