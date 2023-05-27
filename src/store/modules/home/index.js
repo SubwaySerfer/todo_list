@@ -1,13 +1,15 @@
-// import mutations from './mutations';
-// import actions from './actions';
+import mutations from './mutations';
+import actions from './actions';
 import getters from './getters';
 
 export default {
   namespaced: true,
   state() {
-    return {};
+    return {
+      weather: null,
+    };
   },
-  // mutations,
-  // actions,
+  mutations,
+  actions,
   getters,
 };
