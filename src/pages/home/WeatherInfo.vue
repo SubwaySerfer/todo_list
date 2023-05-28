@@ -1,15 +1,18 @@
 <template>
   <div class="container">
-    <h2>city</h2>
-    <img src="" alt="icon weather" />
-    <span>temperature</span>
-    <p>weather description</p>
-    <p>wind speed</p>
-    <p>humidy</p>
+    <h2>{{ city }}</h2>
+    <img :src="icon" alt="icon weather" />
+    <span>{{ temperature }}</span>
+    <p>{{ weatherDescription }}</p>
+    <p>{{ windSpeed }}</p>
+    <p>{{ humidity }}</p>
   </div>
+  <button @click="check"></button>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   data() {
     return {
@@ -18,7 +21,7 @@ export default {
       temperature: '',
       weatherDescription: '',
       windSpeed: '',
-      humidy: '',
+      humidity: '',
       weatherInfo: null,
     };
   },
@@ -27,7 +30,20 @@ export default {
     // this.weatherInfo = this.$store.getters['home/getWeather'];
     // console.log(this.weatherInfo);
   },
-  methods: {},
+  computed: {
+    ...mapGetters('home', ['weather']),
+  },
+  methods: {
+    check() {
+      console.log(this.weather);
+      this.city = this.weather.name;
+      this.temperature = Math.round(this.weather.main.temp);
+      this.icon = this.weather.weather.id;
+      this.weatherDescription = this.weather.weather.description;
+      this.windSpeed = this.weather.wind.speed;
+      this.humidity = this.weather.main.humidity;
+    },
+  },
 };
 </script>
 
