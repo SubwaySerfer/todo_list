@@ -5,4 +5,7 @@ export default {
     // console.log(payload.name, payload.weather);
     // console.log(state.weather);
   },
+  setRate(state, payload) {
+    state.dailyRate = payload;
+  },
 };

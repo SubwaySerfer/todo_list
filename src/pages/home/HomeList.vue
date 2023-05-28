@@ -19,6 +19,7 @@ export default {
   },
   created() {
     this.$store.dispatch('home/getWeather');
+    this.$store.dispatch('home/getDailyRate');
     // this.$store.dispatch('todo/getTasks');
   },
 };

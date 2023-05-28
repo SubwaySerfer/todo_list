@@ -11,4 +11,20 @@ export default {
       console.error(error);
     }
   },
+  async getDailyRate(context) {
+    const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      let newResults = [
+        result.Valute.USD,
+        result.Valute.EUR,
+        result.Valute.TRY,
+      ];
+      context.commit('setRate', result);
+      console.log(context, newResults);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
