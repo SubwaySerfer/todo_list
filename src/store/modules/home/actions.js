@@ -6,7 +6,6 @@ export default {
     try {
       const response = await fetch(url);
       const result = await response.json();
-      // console.log(result, context);
       context.commit('setWeather', result);
     } catch (error) {
       console.error(error);
