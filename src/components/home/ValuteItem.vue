@@ -1,7 +1,13 @@
 <template>
   <div class="container">
-    <img src="@/assets/icons/USD.png" alt="valute icon" />
-    <h3>name: {{ name }}</h3>
+    <div class="valute-item">
+      <img
+        :src="require(`@/assets/icons/${this.nameIcon}.png`)"
+        alt="valute icon"
+      />
+      <h3>{{ name }}</h3>
+    </div>
+
     <span>value: {{ value }}</span>
     <span>previous value: {{ previousVal }}</span>
     <div class="buttons-container">
@@ -15,8 +21,17 @@
 export default {
   props: ['name', 'value', 'previousVal'],
   emits: ['nextVal', 'prevVal'],
+  data() {
+    return {
+      nameIcon: 'USD',
+    };
+  },
+  beforeUpdate() {
+    if (this.nameIcon != this.name) {
+      this.nameIcon = this.name;
+    }
+  },
 };
-//TODO: сделать смену иконок
 </script>
 
 <style scoped>
@@ -38,12 +53,22 @@ export default {
   justify-content: space-between;
   gap: 2rem;
 }
+.valute-item {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+h3 {
+  margin: 0;
+}
 button {
   border-radius: 12px;
   border: 1px solid;
   cursor: pointer;
 }
 img {
-  width: 12px;
+  width: 15px;
+  height: 15px;
 }
 </style>
