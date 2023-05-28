@@ -1,6 +1,15 @@
 <template>
-  <div>
-    Main Info
-    <h6>dollar \ rub</h6>
-  </div>
+  <div>Main Info</div>
+  <valute-item></valute-item>
 </template>
+
+<script>
+import ValuteItem from '@/components/home/ValuteItem.vue';
+
+export default {
+  components: { ValuteItem },
+  data() {
+    return {};
+  },
+};
+</script>
