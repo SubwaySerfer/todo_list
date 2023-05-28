@@ -21,8 +21,8 @@ export default {
         result.Valute.EUR,
         result.Valute.TRY,
       ];
-      context.commit('setRate', result);
-      console.log(context, newResults);
+      context.commit('setRate', newResults);
+      // console.log(context, newResults);
     } catch (error) {
       console.log(error);
     }
