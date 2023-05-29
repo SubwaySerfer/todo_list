@@ -2,7 +2,10 @@
   <header>
     <nav>
       <h1><router-link to="/">Todo List</router-link></h1>
-      <h2>Tasks: {{ taskCounter }}</h2>
+
+      <h2>
+        <router-link to="/todo">Tasks: {{ taskCounter }}</router-link>
+      </h2>
       <div>5 days!</div>
       <ul>
         <li><router-link to="">Contact Me</router-link></li>

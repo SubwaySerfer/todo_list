@@ -8,6 +8,8 @@ export default {
     return {
       weather: null,
       dailyRate: null,
+      currentValute: null,
+      currentValuteIdx: 0,
     };
   },
   mutations,

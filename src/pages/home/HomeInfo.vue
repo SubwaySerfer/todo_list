@@ -1,8 +1,8 @@
 <template>
   <valute-item
-    :name="currentValute.CharCode"
-    :value="currentValute.Value"
-    :previousVal="currentValute.Previous"
+    :name="currentVal.CharCode"
+    :value="currentVal.Value"
+    :previousVal="currentVal.Previous"
     @prev-val="prevValute"
     @next-val="nextValute"
   ></valute-item>
@@ -16,47 +16,51 @@ export default {
   components: { ValuteItem },
   data() {
     return {
-      currentValute: '',
+      currentVal: '',
       currentValIdx: 0,
-      valutes: null,
+      valutes: '',
       isValutes: '',
     };
   },
   created() {
-    this.$store.dispatch('home/getDailyRate');
+    if (this.$store.getters['home/currentValute'] != null) {
+      this.currentVal = this.$store.getters['home/currentValute'];
+      this.currentValIdx = this.$store.getters['home/currentValuteIdx'];
+    } else {
+      this.$store.dispatch('home/getDailyRate');
+    }
   },
   computed: {
-    ...mapGetters('home', ['valute', 'hasValute']),
+    ...mapGetters('home', ['valute', 'hasValute', 'currentValute']),
   },
   watch: {
-    hasValute(newVal, oldVal) {
-      if (newVal != oldVal) {
-        this.isValutes = this.hasValute;
-        this.valutes = this.valute;
-        this.getValuteRates(this.currentValIdx);
-      }
-      console.log(this.valutes);
+    hasValute() {
+      this.getValuteRates(this.currentValIdx);
+      this.setRateInfo();
+    },
+    currentValute(newValue) {
+      return (this.currentVal = newValue);
     },
   },
   methods: {
     getValuteRates(id) {
+      console.log('get rates');
       this.currentValute = this.valutes[id];
     },
     nextValute() {
-      if (this.currentValIdx == this.valutes.length - 1) {
-        this.currentValIdx = 0;
-      } else {
-        this.currentValIdx++;
-      }
-      this.getValuteRates(this.currentValIdx);
+      this.$store.commit('home/nextValute');
     },
     prevValute() {
-      if (this.currentValIdx == 0) {
-        this.currentValIdx = this.valutes.length - 1;
-      } else {
-        this.currentValIdx--;
+      this.$store.commit('home/prevValute');
+    },
+    setRateInfo() {
+      console.log(this.currentVal);
+
+      this.isValutes = this.hasValute;
+      this.valutes = this.valute;
+      if (this.$store.state['home/currentValute'] == null) {
+        this.$store.commit('home/changeCurrentValute', this.currentVal);
       }
-      this.getValuteRates(this.currentValIdx);
     },
   },
 };
