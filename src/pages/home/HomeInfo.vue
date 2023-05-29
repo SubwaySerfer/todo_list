@@ -18,8 +18,8 @@ export default {
     return {
       currentVal: '',
       currentValIdx: 0,
-      valutes: '',
-      isValutes: '',
+      // valutes: '',
+      // isValutes: '',
     };
   },
   created() {
@@ -34,34 +34,31 @@ export default {
     ...mapGetters('home', ['valute', 'hasValute', 'currentValute']),
   },
   watch: {
-    hasValute() {
-      this.getValuteRates(this.currentValIdx);
-      this.setRateInfo();
-    },
+    // hasValute() {
+    //   this.getValuteRates(this.currentValIdx);
+    //   this.setRateInfo();
+    // },
     currentValute(newValue) {
       return (this.currentVal = newValue);
     },
   },
   methods: {
-    getValuteRates(id) {
-      console.log('get rates');
-      this.currentValute = this.valutes[id];
-    },
+    // getValuteRates(id) {
+    //   this.currentValute = this.valutes[id];
+    // },
     nextValute() {
       this.$store.commit('home/nextValute');
     },
     prevValute() {
       this.$store.commit('home/prevValute');
     },
-    setRateInfo() {
-      console.log(this.currentVal);
-
-      this.isValutes = this.hasValute;
-      this.valutes = this.valute;
-      if (this.$store.state['home/currentValute'] == null) {
-        this.$store.commit('home/changeCurrentValute', this.currentVal);
-      }
-    },
+    // setRateInfo() {
+    //   this.isValutes = this.hasValute;
+    //   this.valutes = this.valute;
+    //   if (this.$store.state['home/currentValute'] == null) {
+    //     this.$store.commit('home/changeCurrentValute', this.currentVal);
+    //   }
+    // },
   },
 };
 </script>

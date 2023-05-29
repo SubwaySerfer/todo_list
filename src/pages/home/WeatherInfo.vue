@@ -19,26 +19,26 @@ export default {
       weatherDescription: '',
       windSpeed: '',
       humidity: '',
-      weatherInfo: null,
-      hasWeatherInfo: false,
+      // weatherInfo: null,
+      // hasWeatherInfo: false,
     };
+  },
+  computed: {
+    ...mapGetters('home', ['weather']),
+  },
+  created() {
+    if (this.$store.getters['home/weather'] == null) {
+      this.$store.dispatch('home/getWeather');
+    } else {
+      this.getWeatherInfo();
+    }
+    // console.log(this.$store.getters['home/weather']);
   },
   //TODO: add weather icons
 
-  computed: {
-    ...mapGetters('home', ['weather', 'hasWeather']),
-  },
-
   watch: {
-    hasWeather(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.hasWeatherInfo = this.hasWeather;
-      }
-    },
-    hasWeatherInfo(newWeather, oldWeather) {
-      if (newWeather !== oldWeather) {
-        this.getWeatherInfo();
-      }
+    weather() {
+      this.getWeatherInfo();
     },
   },
   methods: {

@@ -17,10 +17,6 @@ export default {
     HomeTodo,
     HomeInfo,
   },
-  created() {
-    this.$store.dispatch('home/getWeather');
-    this.$store.dispatch('home/getDailyRate');
-  },
 };
 </script>
 

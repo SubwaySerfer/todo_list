@@ -24,9 +24,7 @@ export default {
       context.commit('setRate', newResults);
       if (context.currentValute == null) {
         context.commit('initCurrentValute');
-        console.log('jj');
       }
-      // console.log(context, newResults);
     } catch (error) {
       console.log(error);
     }
