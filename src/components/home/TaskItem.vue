@@ -11,11 +11,6 @@
 <script>
 export default {
   props: ['title', 'priority', 'days'],
-  computed: {
-    // tasks() {
-    //   return console.log(this.$store.getters['todo/tasks']);
-    // },
-  },
   methods: {
     delTask(title) {
       const itemIdx = this.$store.getters['todo/tasks'].findIndex(

@@ -4,6 +4,12 @@ export default {
   },
 
   setRate(state, payload) {
+    payload.forEach((el) => {
+      if (el.Nominal == 10) {
+        el.Value = (el.Value / 10).toFixed(4);
+        el.Previous = (el.Previous / 10).toFixed(4);
+      }
+    });
     state.dailyRate = payload;
   },
   nextValute(state) {

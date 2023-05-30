@@ -18,8 +18,6 @@ export default {
     return {
       currentVal: '',
       currentValIdx: 0,
-      // valutes: '',
-      // isValutes: '',
     };
   },
   created() {
@@ -34,10 +32,6 @@ export default {
     ...mapGetters('home', ['valute', 'hasValute', 'currentValute']),
   },
   watch: {
-    // hasValute() {
-    //   this.getValuteRates(this.currentValIdx);
-    //   this.setRateInfo();
-    // },
     currentValute(newValue) {
       return (this.currentVal = newValue);
     },

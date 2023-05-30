@@ -73,6 +73,7 @@ nav {
 header {
   border: 1px solid black;
   border-radius: 10px 10px 0 0;
+  margin-bottom: 1rem;
 }
 
 ul {
@@ -90,6 +91,8 @@ ul {
 
 .footer {
   align-self: flex-end;
+  margin-top: 1rem;
+  padding: 0 1rem 1rem 0;
 }
 
 .container-tasks {
