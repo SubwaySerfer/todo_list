@@ -56,7 +56,7 @@ export default {
 <style scoped>
 .container {
   width: auto;
-  height: auto;
+  height: min-content;
   gap: 1rem;
   background-color: rgb(181, 184, 184);
   display: flex;
