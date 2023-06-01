@@ -1,25 +1,47 @@
 <template>
   <section class="container">
     <h2>Filters</h2>
-    <form action="">
+    <form action="" @submit.prevent="">
       <h3>Priority:</h3>
       <div class="priority-box">
         <div class="priority-box_item">
-          <input type="checkbox" id="Light" name="Light" />
-          <label for="Light">Light</label>
+          <input type="checkbox" id="light" value="light" v-model="priority" />
+          <label for="light">Light</label>
         </div>
         <div class="priority-box_item">
-          <input type="checkbox" id="Medium" name="Medium" />
-          <label for="Medium">Medium</label>
+          <input
+            type="checkbox"
+            id="medium"
+            value="medium"
+            v-model="priority"
+          />
+          <label for="medium">Medium</label>
         </div>
         <div class="priority-box_item">
-          <input type="checkbox" id="Hard" name="Hard" />
-          <label for="Hard">Hard</label>
+          <input type="checkbox" id="high" value="high" v-model="priority" />
+          <label for="high">High</label>
         </div>
       </div>
+      <button @click="useFilters">Use Filters</button>
     </form>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      priority: [],
+    };
+  },
+  methods: {
+    useFilters() {
+      this.$store.dispatch('todo/getCurrentTasks', this.priority);
+      // console.log(this.$store.state.currentTasks);
+    },
+  },
+};
+</script>
 
 <style scoped>
 .container {

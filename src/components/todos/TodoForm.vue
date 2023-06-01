@@ -16,12 +16,12 @@
           <input
             class="radio"
             type="radio"
-            id="hight"
-            value="hight"
+            id="high"
+            value="high"
             v-model="priority.val"
             @blur="clearValidity('priority')"
           />
-          <label for="hight">Hight</label>
+          <label for="high">High</label>
         </div>
         <div class="container-priority_item">
           <input
@@ -90,6 +90,7 @@ export default {
       formIsValid: true,
     };
   },
+  //TODO: исправить баг при отсутствии кэша
   methods: {
     clearValidity(input) {
       this[input].isValid = true;
