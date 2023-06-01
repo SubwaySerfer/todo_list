@@ -6,7 +6,6 @@
       <h2>
         <router-link to="/todo">Tasks: {{ taskCounter }}</router-link>
       </h2>
-      <div>5 days!</div>
       <ul>
         <li><router-link to="">Contact Me</router-link></li>
         <li>
