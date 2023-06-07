@@ -9,3 +9,5 @@ export default {
     state.tasks = state.tasks.filter((el, idx) => idx != payload);
   },
 };
+
+//TODO: исправить taskCounter если обновить страницу показывает 0 на странице TASKS

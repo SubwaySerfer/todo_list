@@ -4,18 +4,28 @@ export default {
     context.state.tasks = JSON.parse(localTasks);
   },
   getCurrentTasks(context, filterPriority) {
-    console.log(context.state.tasks, filterPriority);
-    let newArr = context.state.tasks;
+    // console.log(context.state.tasks, filterPriority);
+    // let newArr = context.state.tasks;
+    let newArr = [];
     if (filterPriority.length > 0) {
-      newArr = newArr.filter((el) => {
-        console.log(filterPriority, el.priority);
-        return filterPriority.includes(el.priority) == true;
+      context.state.tasks.filter((el) => {
+        // console.log(
+        //   filterPriority,
+        //   el.priority,
+        //   filterPriority.includes(el.priority) == true
+        // );
+        // return filterPriority.includes(el.priority) == true;
+        if (filterPriority.includes(el.priority) == true) {
+          newArr.push(el);
+        }
 
         // console.log(el, );
       });
-      console.log('newArr: ', newArr);
+      // console.log('newArr: ', newArr);
+
       // console.log(newArr);
     }
+
     return (context.state.currentTasks = newArr);
   },
 };

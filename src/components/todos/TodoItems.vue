@@ -27,9 +27,13 @@ export default {
       tasksArr: [],
     };
   },
+  //TODO: add currentTaskList to v-for
   computed: {
     tasksData() {
       return this.$store.getters['todo/tasks'];
+    },
+    currentTaskList() {
+      return this.$store.getters['todo/currentTaskList'];
     },
   },
   created() {
