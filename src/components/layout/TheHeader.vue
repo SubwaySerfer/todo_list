@@ -20,6 +20,9 @@
 export default {
   computed: {
     taskCounter() {
+      if (this.$store.getters['todo/tasks'] == null) {
+        return 0;
+      }
       return this.$store.getters['todo/tasks'].length;
     },
   },
