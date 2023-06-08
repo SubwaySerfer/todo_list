@@ -27,6 +27,11 @@ export default {
       tasksArr: [],
     };
   },
+  created() {
+    // this.$store.commit('todo/setLocalStorage');
+    this.$store.commit('todo/getLocalStorage');
+    console.log(this.tasksData);
+  },
   computed: {
     tasksData() {
       return this.$store.getters['todo/tasks'];

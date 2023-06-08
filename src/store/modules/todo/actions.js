@@ -24,8 +24,10 @@ export default {
       // console.log('newArr: ', newArr);
 
       // console.log(newArr);
+      return (context.state.currentTasks = newArr);
+    } else {
+      console.log('kkk');
+      return (context.state.currentTasks = context.state.tasks);
     }
-    console.log(newArr);
-    return (context.state.currentTasks = newArr);
   },
 };
