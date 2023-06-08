@@ -28,9 +28,8 @@ export default {
     };
   },
   created() {
-    // this.$store.commit('todo/setLocalStorage');
     this.$store.commit('todo/getLocalStorage');
-    console.log(this.tasksData);
+    this.tasksArr = this.tasksData;
   },
   computed: {
     tasksData() {
