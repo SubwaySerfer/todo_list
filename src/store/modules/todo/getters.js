@@ -3,6 +3,6 @@ export default {
     return state.tasks;
   },
   currentTaskList(state) {
-    return state.currentTaskList;
+    return state.currentTasks;
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <ul>
-      <base-card v-for="task in tasksData" :key="task.title" class="card">
+      <base-card v-for="task in tasksArr" :key="task.title" class="card">
         <div class="header-box">
           <div class="title-box">
             <h2>Title:</h2>
@@ -27,7 +27,6 @@ export default {
       tasksArr: [],
     };
   },
-  //TODO: add currentTaskList to v-for
   computed: {
     tasksData() {
       return this.$store.getters['todo/tasks'];
@@ -36,9 +35,15 @@ export default {
       return this.$store.getters['todo/currentTaskList'];
     },
   },
-  created() {
-    this.tasksArr = this.tasksData;
-    console.log(this.tasksArr);
+  watch: {
+    currentTaskList(newVal, oldVal) {
+      if (newVal != oldVal) {
+        this.tasksArr = [];
+        for (let key in this.currentTaskList) {
+          this.tasksArr.push(this.currentTaskList[key]);
+        }
+      }
+    },
   },
 };
 </script>

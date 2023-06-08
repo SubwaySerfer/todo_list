@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     useFilters() {
-      console.log('use');
+      // console.log('use');
       this.$store.dispatch('todo/getCurrentTasks', this.priority);
       // console.log(this.$store.state.currentTasks);
     },

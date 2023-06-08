@@ -25,7 +25,7 @@ export default {
 
       // console.log(newArr);
     }
-
+    console.log(newArr);
     return (context.state.currentTasks = newArr);
   },
 };
