@@ -30,6 +30,10 @@ export default {
   created() {
     this.$store.commit('todo/getLocalStorage');
     this.tasksArr = this.tasksData;
+    let localFilters = JSON.parse(localStorage.getItem('filters'));
+    if (localFilters) {
+      this.$store.dispatch('todo/getCurrentTasks', localFilters);
+    }
   },
   computed: {
     tasksData() {
@@ -40,12 +44,10 @@ export default {
     },
   },
   watch: {
-    currentTaskList(newVal, oldVal) {
-      if (newVal != oldVal) {
-        this.tasksArr = [];
-        for (let key in this.currentTaskList) {
-          this.tasksArr.push(this.currentTaskList[key]);
-        }
+    currentTaskList() {
+      this.tasksArr = [];
+      for (let key in this.currentTaskList) {
+        this.tasksArr.push(this.currentTaskList[key]);
       }
     },
   },

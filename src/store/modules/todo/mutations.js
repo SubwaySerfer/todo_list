@@ -11,4 +11,7 @@ export default {
   deleteTask(state, payload) {
     state.tasks = state.tasks.filter((el, idx) => idx != payload);
   },
+  // setLocalFilters(state){
+  //   localStorage.setItem('filters', JSON.stringify(state.))
+  // }
 };

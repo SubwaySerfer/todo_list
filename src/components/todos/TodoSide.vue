@@ -22,7 +22,10 @@
           <label for="high">High</label>
         </div>
       </div>
-      <button @click="useFilters">Use Filters</button>
+      <div class="btn-container">
+        <button @click="useFilters">Use Filters</button>
+        <button @click="resetFilters">Reset</button>
+      </div>
     </form>
   </section>
 </template>
@@ -34,14 +37,23 @@ export default {
       priority: [],
     };
   },
+  created() {
+    this.priority = JSON.parse(localStorage.getItem('filters'));
+  },
   methods: {
     useFilters() {
       this.$store.dispatch('todo/getCurrentTasks', this.priority);
     },
+    resetFilters() {
+      this.priority = [];
+      this.useFilters();
+    },
   },
-  // created() {
-  //   this.useFilters();
-  // },
+  watch: {
+    priority() {
+      localStorage.setItem('filters', JSON.stringify(this.priority));
+    },
+  },
 };
 </script>
 
@@ -67,5 +79,26 @@ h3 {
 .priority-box_item {
   display: flex;
   align-items: center;
+}
+input,
+label {
+  cursor: pointer;
+}
+button {
+  border-radius: 12px;
+  background-color: #f391e3;
+  border: 1px solid #f391e3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+button:hover {
+  transform: scale(1.07);
+}
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  margin-top: 1rem;
 }
 </style>
