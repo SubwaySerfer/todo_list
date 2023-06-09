@@ -7,7 +7,7 @@
         <router-link to="/todo">Tasks: {{ taskCounter }}</router-link>
       </h2>
       <ul>
-        <li><router-link to="">Contact Me</router-link></li>
+        <li><router-link to="/contacts">Contact Me</router-link></li>
         <li>
           <router-link to="">Requests</router-link>
         </li>
