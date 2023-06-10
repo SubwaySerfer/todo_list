@@ -9,7 +9,7 @@
       <ul>
         <li><router-link to="/contacts">Contact Me</router-link></li>
         <li>
-          <router-link to="">Requests</router-link>
+          <router-link to="/requests">Requests</router-link>
         </li>
       </ul>
     </nav>
@@ -18,6 +18,9 @@
 
 <script>
 export default {
+  created() {
+    this.$store.commit('todo/getLocalStorage');
+  },
   computed: {
     taskCounter() {
       if (this.$store.getters['todo/tasks'] == null) {

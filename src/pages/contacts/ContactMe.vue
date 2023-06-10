@@ -34,9 +34,9 @@
 </template>
 <script>
 export default {
-  created() {
-    this.$store.commit('todo/getLocalStorage');
-  },
+  // created() {
+  //   this.$store.commit('todo/getLocalStorage');
+  // },
 };
 </script>
 

@@ -5,6 +5,7 @@ import TaskRegister from '../pages/todo/TaskRegister';
 import ContactMe from '../pages/contacts/ContactMe';
 import HomeList from '../pages/home/HomeList';
 import TodoList from '../pages/todo/TodoList';
+import RequestsList from '../pages/requests/RequestsList';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/contacts',
       name: 'contacts',
       component: ContactMe,
+    },
+    {
+      path: '/requests',
+      name: 'requests',
+      component: RequestsList,
     },
     { path: '/:notFound(.*)', component: NotFound },
   ],
