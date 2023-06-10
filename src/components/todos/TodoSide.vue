@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h2>Filters</h2>
-    <form action="" @submit.prevent="">
+    <form @submit.prevent="">
       <h3>Priority:</h3>
       <div class="priority-box">
         <div class="priority-box_item">
