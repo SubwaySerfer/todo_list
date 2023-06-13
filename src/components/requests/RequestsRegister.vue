@@ -11,6 +11,7 @@
           name="name"
           @blur="clearValidity('name')"
         />
+        <p class="isNotValid" v-if="!name.isValid">Name must not be empty.</p>
       </div>
       <div class="form-control" :class="{ invalid: !url.isValid }">
         <label for="url">Your GitHub URL: </label
@@ -21,6 +22,9 @@
           v-model.trim="url.val"
           @blur="clearValidity('url')"
         />
+        <p class="isNotValid" v-if="!url.isValid">
+          URL must include github.com
+        </p>
       </div>
       <div class="form-control" :class="{ invalid: !message.isValid }">
         <label for="message">Your message: </label>
@@ -31,6 +35,9 @@
           @blur="clearValidity('message')"
           v-model.trim="message.val"
         ></textarea>
+        <p class="isNotValid" v-if="!message.isValid">
+          Must be more than 12 characters.
+        </p>
       </div>
       <button>Create</button>
     </form>
@@ -120,5 +127,10 @@ h3 {
 .invalid input,
 .invalid textarea {
   border: 1px solid red;
+}
+.isNotValid {
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+  color: red;
 }
 </style>
