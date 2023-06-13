@@ -4,7 +4,7 @@
       <h2>Requests:</h2>
       <ul>
         <li
-          v-for="request in requests"
+          v-for="request in requestsList"
           :key="request.name"
           class="request-card"
         >
@@ -22,18 +22,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      requests: [
-        {
-          name: 'alex',
-          tg: '@asdasd',
-          text: 'my Text here',
-          urlGitHub: 'https://github.com/SubwaySerfer',
-        },
-        { name: 'dmitro', tg: '@aaaa', text: 'Test text 2' },
-      ],
-    };
+  computed: {
+    requestsList() {
+      return this.$store.getters['requests/requestsList'];
+    },
   },
 };
 </script>
