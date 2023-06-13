@@ -15,7 +15,7 @@ export default {
         },
         { name: 'dmitro', tg: '@aaaa', text: 'Test text 2' },
       ],
-      isValidRequest: false,
+      // isValidRequest: false,
     };
   },
   mutations,
