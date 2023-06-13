@@ -10,12 +10,11 @@ export default {
         {
           name: 'alex',
           tg: '@asdasd',
-          text: 'my Text here',
+          message: 'my Text here',
           urlGitHub: 'https://github.com/SubwaySerfer',
         },
-        { name: 'dmitro', tg: '@aaaa', text: 'Test text 2' },
+        { name: 'dmitro', tg: '@aaaa', message: 'Test text 2' },
       ],
-      // isValidRequest: false,
     };
   },
   mutations,

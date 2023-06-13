@@ -13,7 +13,7 @@
             >{{ request.name }} GitHub!</a
           >
           <h5>Text:</h5>
-          <p>{{ request.text }}</p>
+          <p>{{ request.message }}</p>
           <!-- {{ request }} -->
         </li>
       </ul>
@@ -37,6 +37,7 @@ export default {
   width: 70vw;
   margin-left: 1vw;
   padding: 0.5rem;
+  padding-bottom: 1rem;
 }
 h2,
 ul,
@@ -60,6 +61,7 @@ ul {
   border: 1px solid black;
   border-radius: 12px;
   padding: 0.5rem;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.26);
 }
 a {
   text-decoration: none;

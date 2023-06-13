@@ -2,34 +2,34 @@
   <section class="container">
     <form @submit.prevent="submitForm">
       <h3>Create Request</h3>
-      <div class="form-control" :class="{ invalid: !request.name.isValid }">
+      <div class="form-control" :class="{ invalid: !name.isValid }">
         <label for="name">Your Name: </label
         ><input
           type="text"
-          v-model.trim="request.name.val"
+          v-model.trim="name.val"
           id="name"
           name="name"
           @blur="clearValidity('name')"
         />
       </div>
-      <div class="form-control" :class="{ invalid: !request.url.isValid }">
+      <div class="form-control" :class="{ invalid: !url.isValid }">
         <label for="url">Your GitHub URL: </label
         ><input
           type="text"
           id="url"
           name="url"
-          v-model.trim="request.url.val"
+          v-model.trim="url.val"
           @blur="clearValidity('url')"
         />
       </div>
-      <div class="form-control" :class="{ invalid: !request.message.isValid }">
+      <div class="form-control" :class="{ invalid: !message.isValid }">
         <label for="message">Your message: </label>
         <textarea
           id="message"
           cols="25"
           rows="5"
           @blur="clearValidity('message')"
-          v-model.trim="request.message.val"
+          v-model.trim="message.val"
         ></textarea>
       </div>
       <button>Create</button>
@@ -41,45 +41,52 @@
 export default {
   data() {
     return {
-      request: {
-        name: {
-          val: '',
-          isValid: true,
-        },
-        url: {
-          val: '',
-          isValid: true,
-        },
-        message: {
-          val: '',
-          isValid: true,
-        },
+      name: {
+        val: '',
+        isValid: true,
       },
+      url: {
+        val: '',
+        isValid: true,
+      },
+      message: {
+        val: '',
+        isValid: true,
+      },
+
       formIsValid: true,
     };
   },
   methods: {
     clearValidity(input) {
-      this.request[input].isValid = true;
+      this[input].isValid = true;
     },
     submitForm() {
       this.validateRequest();
       if (!this.formIsValid) {
         return;
       }
+      const request = {
+        name: this.name.val,
+        urlGitHub: this.url.val,
+        message: this.message.val,
+      };
+      this.$store.commit('requests/createRequest', request);
+
+      (this.name.val = ''), (this.url.val = ''), (this.message.val = '');
     },
     validateRequest() {
       this.formIsValid = true;
-      if (this.request.name.val.length < 3) {
-        this.request.name.isValid = false;
+      if (this.name.val.length < 3) {
+        this.name.isValid = false;
         this.formIsValid = false;
       }
-      if (this.request.url.val.length < 6) {
-        this.request.url.isValid = false;
+      if (!this.url.val.toLowerCase().includes('github.com')) {
+        this.url.isValid = false;
         this.formIsValid = false;
       }
-      if (this.request.message.val.length < 15) {
-        this.request.message.isValid = false;
+      if (this.message.val.length < 12) {
+        this.message.isValid = false;
         this.formIsValid = false;
       }
     },
