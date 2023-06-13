@@ -92,7 +92,7 @@ export default {
         this.url.isValid = false;
         this.formIsValid = false;
       }
-      if (this.message.val.length < 12) {
+      if (this.message.val.length < 12 || this.message.val.length > 250) {
         this.message.isValid = false;
         this.formIsValid = false;
       }
