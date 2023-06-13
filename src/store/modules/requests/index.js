@@ -1,5 +1,6 @@
 import mutations from './mutations';
 import getters from './getters';
+import actions from './actions';
 
 export default {
   namespaced: true,
@@ -14,8 +15,10 @@ export default {
         },
         { name: 'dmitro', tg: '@aaaa', text: 'Test text 2' },
       ],
+      isValidRequest: false,
     };
   },
   mutations,
   getters,
+  actions,
 };
