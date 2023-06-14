@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <base-spinner v-if="isLoading"></base-spinner>
+  <div class="container" v-else>
     <div class="valute-item">
       <img
         :src="require(`@/assets/icons/${this.nameIcon}.png`)"
@@ -24,7 +25,20 @@ export default {
   data() {
     return {
       nameIcon: 'USD',
+      isLoading: false,
     };
+  },
+  created() {
+    if (this.name == undefined) {
+      this.isLoading = true;
+    }
+  },
+  watch: {
+    name() {
+      if (this.name != undefined) {
+        this.isLoading = false;
+      }
+    },
   },
   beforeUpdate() {
     if (this.nameIcon != this.name) {
@@ -49,6 +63,7 @@ export default {
   height: min-content;
   gap: 1.2rem;
 }
+
 .buttons-container {
   display: flex;
   flex-direction: row;

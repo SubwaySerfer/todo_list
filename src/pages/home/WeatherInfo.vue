@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <base-spinner v-if="isLoading"></base-spinner>
+  <div class="container" v-else>
     <h2>{{ city }}</h2>
     <span class="weather-info">{{ temperature }}°C</span>
     <p class="weather-info">{{ weatherDescription }}</p>
@@ -19,8 +20,7 @@ export default {
       weatherDescription: '',
       windSpeed: '',
       humidity: '',
-      // weatherInfo: null,
-      // hasWeatherInfo: false,
+      isLoading: true,
     };
   },
   computed: {
@@ -32,7 +32,6 @@ export default {
     } else {
       this.getWeatherInfo();
     }
-    // console.log(this.$store.getters['home/weather']);
   },
   //TODO: add weather icons
 
@@ -48,6 +47,7 @@ export default {
       this.weatherDescription = this.weather.weather[0].description;
       this.windSpeed = this.weather.wind.speed;
       this.humidity = this.weather.main.humidity;
+      this.isLoading = false;
     },
   },
 };
