@@ -60,9 +60,9 @@
     </div>
     <div class="form-control">
       <label for="">The task for how long?</label>
-      <select id="days" name="days" v-model="days">
-        <option value="today">Today</option>
-        <option value="week">Week</option>
+      <select id="frequency" name="frequency" v-model="frequency">
+        <option value="everyday">everyday</option>
+        <option value="every week">every week</option>
       </select>
     </div>
     <base-button>Add Task</base-button>
@@ -82,7 +82,7 @@ export default {
         val: null,
         isValid: true,
       },
-      days: 'today',
+      frequency: 'everyday',
       description: {
         val: '',
         isValid: true,
@@ -120,7 +120,7 @@ export default {
         title: this.title.val,
         priority: this.priority.val,
         description: this.description.val,
-        days: this.days,
+        frequency: this.frequency,
       };
       this.$emit('save-data', taskData);
     },

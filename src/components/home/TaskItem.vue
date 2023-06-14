@@ -3,14 +3,14 @@
     <span class="li-item">{{ title }}</span>
     <span class="li-item">{{ priority }}</span>
     <span class="li-item">None</span>
-    <span class="li-item">{{ days }}</span>
+    <span class="li-item">{{ frequency }}</span>
     <button @click="delTask(title)">delete</button>
   </li>
 </template>
 
 <script>
 export default {
-  props: ['title', 'priority', 'days'],
+  props: ['title', 'priority', 'frequency'],
   methods: {
     delTask(title) {
       const itemIdx = this.$store.getters['todo/tasks'].findIndex(

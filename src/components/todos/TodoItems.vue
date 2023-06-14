@@ -9,7 +9,7 @@
           </div>
           <div class="header-box_info">
             <span class="priority">Priority: {{ task.priority }}</span>
-            <span>Deadline: {{ task.days }}</span>
+            <span>Frequency: {{ task.frequency }}</span>
           </div>
         </div>
 

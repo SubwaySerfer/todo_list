@@ -6,7 +6,7 @@
           <li class="nav-item"><span>Task name</span></li>
           <li class="nav-item"><span>Priority</span></li>
           <li class="nav-item"><span>Status</span></li>
-          <li class="nav-item"><span>date</span></li>
+          <li class="nav-item"><span>frequency</span></li>
         </ul>
       </nav>
     </header>
@@ -16,7 +16,7 @@
           v-for="task in filteredTasks"
           :key="task.title"
           :title="task.title"
-          :days="task.days"
+          :frequency="task.frequency"
           :priority="task.priority"
         ></task-item>
       </ul>
