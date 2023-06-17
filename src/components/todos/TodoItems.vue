@@ -28,7 +28,6 @@ export default {
     };
   },
   created() {
-    // this.$store.commit('todo/getLocalStorage');
     this.tasksArr = this.tasksData;
     let localFilters = JSON.parse(localStorage.getItem('filters'));
     if (localFilters) {

@@ -38,7 +38,11 @@ export default {
     };
   },
   created() {
-    this.priority = JSON.parse(localStorage.getItem('filters'));
+    if (!Array.isArray(JSON.parse(localStorage.getItem('filters')))) {
+      this.priority = [];
+    } else {
+      this.priority = JSON.parse(localStorage.getItem('filters'));
+    }
   },
   methods: {
     useFilters() {
