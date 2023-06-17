@@ -1,5 +1,8 @@
 export default {
   registerTask(state, payload) {
+    if (!state.tasks) {
+      state.tasks = [];
+    }
     state.tasks.push(payload);
   },
   setLocalStorage(state) {
