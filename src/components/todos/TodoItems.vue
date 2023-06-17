@@ -3,18 +3,24 @@
     <ul>
       <base-card v-for="task in tasksArr" :key="task.title" class="card">
         <div class="header-box">
-          <div class="title-box">
-            <h2>Title:</h2>
-            <span class="title">{{ task.title }}</span>
+          <div class="header-box_text">
+            <div class="header-box_title">
+              <h2>Title:</h2>
+              <span class="title">{{ task.title }}</span>
+            </div>
+            <div class="header-box_text_couple">
+              <h3>Description:</h3>
+              <p>{{ task.description }}</p>
+            </div>
           </div>
           <div class="header-box_info">
-            <span class="priority">Priority: {{ task.priority }}</span>
-            <span>Frequency: {{ task.frequency }}</span>
+            <div class="info_labels">
+              <span class="priority">Priority: {{ task.priority }}</span>
+              <span>Frequency: {{ task.frequency }}</span>
+            </div>
+            <div class=""><button>Done</button></div>
           </div>
         </div>
-
-        <h3>Description:</h3>
-        <p>{{ task.description }}</p>
       </base-card>
     </ul>
   </section>
@@ -69,21 +75,33 @@ h3 {
   flex-direction: row;
   justify-content: space-between;
 }
-.title-box {
+.header-box_text {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   gap: 1rem;
   margin-bottom: 1rem;
 }
-.title-box span {
+.header-box_text span {
   font-size: 1.5rem;
   font-weight: 600;
 }
+.header-box_title {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
 .priority {
   justify-self: center;
 }
 .header-box_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info_labels {
   display: flex;
   flex-direction: column;
 }
