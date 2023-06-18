@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid';
+
 export default {
   emits: ['save-data'],
   data() {
@@ -121,6 +123,8 @@ export default {
         priority: this.priority.val,
         description: this.description.val,
         frequency: this.frequency,
+        status: 'not ready',
+        id: uuidv4(),
       };
       this.$emit('save-data', taskData);
     },

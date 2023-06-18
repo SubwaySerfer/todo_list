@@ -18,6 +18,7 @@
           :title="task.title"
           :frequency="task.frequency"
           :priority="task.priority"
+          :status="task.status"
         ></task-item>
       </ul>
     </div>

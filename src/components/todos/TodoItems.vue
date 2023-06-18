@@ -17,8 +17,11 @@
             <div class="info_labels">
               <span class="priority">Priority: {{ task.priority }}</span>
               <span>Frequency: {{ task.frequency }}</span>
+              <span>Status: {{ task.status }}</span>
             </div>
-            <div class=""><button>Done</button></div>
+            <div>
+              <button :name="task.id" @click="finishTask">Done</button>
+            </div>
           </div>
         </div>
       </base-card>
@@ -54,6 +57,11 @@ export default {
       for (let key in this.currentTaskList) {
         this.tasksArr.push(this.currentTaskList[key]);
       }
+    },
+  },
+  methods: {
+    finishTask() {
+      this.$store.commit('todo/finishedTask', event.target.name);
     },
   },
 };
@@ -100,6 +108,7 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 12rem;
 }
 .info_labels {
   display: flex;
