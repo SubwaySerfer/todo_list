@@ -62,6 +62,7 @@ export default {
   methods: {
     finishTask() {
       this.$store.commit('todo/finishedTask', event.target.name);
+      this.$store.commit('todo/setLocalStorage');
     },
   },
 };
