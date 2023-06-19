@@ -79,9 +79,10 @@ export default {
         message: this.message.val,
       };
       this.$store.commit('requests/createRequest', request);
-
+      this.$store.dispatch('requests/registerRequest', request);
       (this.name.val = ''), (this.url.val = ''), (this.message.val = '');
     },
+
     validateRequest() {
       this.formIsValid = true;
       if (this.name.val.length < 3) {
