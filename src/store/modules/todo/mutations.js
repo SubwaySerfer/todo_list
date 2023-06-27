@@ -14,4 +14,13 @@ export default {
   deleteTask(state, payload) {
     state.tasks = state.tasks.filter((el, idx) => idx != payload);
   },
+  finishedTask(state, payload) {
+    console.log(state, payload);
+    state.tasks.forEach((el) => {
+      if (el.id == payload) {
+        el.status = 'ready';
+      }
+    });
+    //TODO: надо сделать зависимость чтобы при переходе статус не менялся!
+  },
 };
