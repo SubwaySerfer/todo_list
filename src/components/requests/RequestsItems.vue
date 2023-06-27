@@ -30,6 +30,9 @@
 </template>
 <script>
 export default {
+  created() {
+    this.$store.dispatch('requests/getDataRequests');
+  },
   computed: {
     requestsList() {
       return this.$store.getters['requests/requestsList'];

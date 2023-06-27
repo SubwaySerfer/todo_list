@@ -78,8 +78,10 @@ export default {
         urlGitHub: this.url.val,
         message: this.message.val,
       };
-      this.$store.commit('requests/createRequest', request);
+      // this.$store.commit('requests/createRequest', request);
       this.$store.dispatch('requests/registerRequest', request);
+      this.$store.dispatch('requests/getDataRequests');
+
       (this.name.val = ''), (this.url.val = ''), (this.message.val = '');
     },
 
